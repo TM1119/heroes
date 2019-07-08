@@ -12,6 +12,9 @@ import WeaponList from './views/weapon/WeaponList.vue'
 import EquipList from './views/equip/EquipList.vue'
 // 创建路由对象
 const router = new VueRouter({
+  // 选项
+  // 当浏览器地址中的路由地址和router-link生成的a标签的href精确匹配的时候 添加类样式
+  linkExactActiveClass :'active',
   // 配置路由规则
   routes:[
       {path:"/", redirect:"/hero"},
