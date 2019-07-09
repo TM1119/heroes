@@ -25,16 +25,46 @@
 <script>
   import axios from 'axios'
 export default {
+  props:['id'],
   data() {
-    return {
+    return {  
       formData : {
         name :'',
         gender:'男'
       }
     }
   },
+  mounted() {
+    this.getDataById()
+  },
   methods:{
-      
+    getDataById () {
+      axios
+          .get(`http://localhost:3000/heroes/${this.id}`)
+          .then((res) => {
+            const {status, data} = res
+            console.log(data)
+            if (status === 200) {
+              // 获取成功
+              this.formData = data
+            }else {
+              // 获取失败
+              alert('获取失败')
+            }
+          })
+          .catch((err) => {
+            console.log(err)
+          })
+    },
+    edit() {
+      axios
+         .put('http://localhost:3000/heroes',this.formData)
+         .then((res) => {
+           if (res.status === 200) {
+             this.$router.push('/hero')
+           }
+         })
+    }
   }
 }
 </script>

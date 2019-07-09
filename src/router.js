@@ -27,7 +27,7 @@ const router = new VueRouter({
       {name:'weapon',path:'/weapon', component:WeaponList},
       {name:'equip',path:'/equip', component:EquipList},
       {name:'heroadd', path:'/hero/heroadd',component:HeroAdd},
-      {name:'heroedit',path:'/hero/heroedit',component:HeroEdit}
+      {name:'heroedit',path:'/hero/heroedit/:id',component:HeroEdit,props:true}
   ]
 })
 // 导出router对象

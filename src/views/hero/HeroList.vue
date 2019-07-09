@@ -21,7 +21,7 @@
                 <td>
 
                   <!-- <a href="edit.html">编辑</a> -->
-                  <router-link :to="{name:'heroedit'}">编辑</router-link>
+                  <router-link :to="{name:'heroedit',params:{id:item.id}}">编辑</router-link>
                   &nbsp;&nbsp;
                   <a href="javascript:;" @click='del(item.id)'>删除</a>
                 </td>
