@@ -10,6 +10,8 @@ import HeroList from './views/hero/HeroList.vue'
 import WeaponList from './views/weapon/WeaponList.vue'
 //导入EquipList组件
 import EquipList from './views/equip/EquipList.vue'
+// 导入HeroAdd组件
+import HeroAdd  from './views/hero/HeroAdd.vue'
 // 创建路由对象
 const router = new VueRouter({
   // 选项
@@ -20,7 +22,8 @@ const router = new VueRouter({
       {path:"/", redirect:"/hero"},
       {name:"hero", path:"/hero", component:HeroList},
       {name:'weapon',path:'/weapon', component:WeaponList},
-      {name:'equip',path:'/equip', component:EquipList}
+      {name:'equip',path:'/equip', component:EquipList},
+      {name:'heroadd', path:'/hero/heroadd',component:HeroAdd}
   ]
 })
 // 导出router对象
