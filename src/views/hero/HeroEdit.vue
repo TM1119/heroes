@@ -39,8 +39,8 @@ export default {
   },
   methods:{
     getDataById () {
-      axios
-          .get(`http://localhost:3000/heroes/${this.id}`)
+      this.axios
+          .get(`heroes/${this.id}`)
           .then((res) => {
             const {status, data} = res
             console.log(data)
@@ -58,7 +58,7 @@ export default {
     },
     edit() {
       this.axios
-         .put(`http://localhost:3000/heroes/${this.id}`,this.formData)
+         .put(`heroes/${this.id}`,this.formData)
          .then((res) => {
            if (res.status === 200) {
              this.$router.push('/hero')

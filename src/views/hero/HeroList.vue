@@ -46,7 +46,7 @@ this.loadData()
   methods: {
     loadData() {
       this.axios
-          .get('http://localhost:3000/heroes')
+          .get('heroes')
           .then((res) => {
             const {status,data} = res
            
@@ -66,7 +66,7 @@ this.loadData()
                 return false
             }
       this.axios
-          .delete(`http://localhost:3000/heroes/${id}`)
+          .delete(`heroes/${id}`)
           .then((res) => {
          
             if (res.status ===200){
