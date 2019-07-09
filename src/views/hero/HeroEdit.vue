@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import axios from 'axios'
+
 export default {
   props:['id'],
   data() {
@@ -57,7 +57,7 @@ export default {
           })
     },
     edit() {
-      axios
+      this.axios
          .put(`http://localhost:3000/heroes/${this.id}`,this.formData)
          .then((res) => {
            if (res.status === 200) {

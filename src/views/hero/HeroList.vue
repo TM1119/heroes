@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 export default {
     data() {
       return {
@@ -45,7 +45,7 @@ this.loadData()
   },
   methods: {
     loadData() {
-      axios
+      this.axios
           .get('http://localhost:3000/heroes')
           .then((res) => {
             const {status,data} = res
@@ -65,7 +65,7 @@ this.loadData()
          if(!confirm('您确认删除吗')){
                 return false
             }
-      axios
+      this.axios
           .delete(`http://localhost:3000/heroes/${id}`)
           .then((res) => {
          
