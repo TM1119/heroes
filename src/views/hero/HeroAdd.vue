@@ -4,12 +4,12 @@
     <form>
       <div class="form-group">
         <label for="txtName">姓名</label>
-        <input type="text" class="form-control" id="txtName" placeholder="姓名" >
+        <input type="text" class="form-control" id="txtName" placeholder="姓名" v-model="formData.name">
       </div>
       <div class="form-group">
         <label for="gender">性别</label>
         <!-- <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"> -->
-        <select class="form-control" id="gender" >
+        <select class="form-control" id="gender" v-model="formData.gender">
           <option value="男">男</option>
           <option value="女">女</option>
         </select>
@@ -17,14 +17,38 @@
       <!-- button 就是提交按钮 -->
       <!-- <input type="button" value=""> -->
       <!-- prevent 事件修饰符，阻止默认行为 -->
-      <button  class="btn btn-success">提交</button>
+      <button  @click.prevent="add" class="btn btn-success">提交</button>
     </form>
   </div>
 </template>
 
 <script>
+  import axios from 'axios'
 export default {
-
+  data() {
+    return {
+      formData : {
+        name :'',
+        gender:'男'
+      }
+    }
+  },
+  methods:{
+      add () {
+        axios
+            .post('http://localhost:3000/heroes',this.formData)
+            .then((res) => {
+              if(res.status ===201){
+                this.$router.push('/hero')
+              }else {
+                alert( )
+              }
+            })
+            .catch((err) => {
+              console.log(err)
+            })
+      }   
+  }
 }
 </script>
 
