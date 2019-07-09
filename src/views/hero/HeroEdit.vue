@@ -58,11 +58,16 @@ export default {
     },
     edit() {
       axios
-         .put('http://localhost:3000/heroes',this.formData)
+         .put(`http://localhost:3000/heroes/${this.id}`,this.formData)
          .then((res) => {
            if (res.status === 200) {
              this.$router.push('/hero')
+           }else {
+             alert('修改失败')
            }
+         })
+         .catch((err) => {
+           console.log(err)
          })
     }
   }
