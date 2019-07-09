@@ -71,6 +71,8 @@ this.loadData()
               this.loadData()
             }
 
+          }).catch(err=>{
+            alert('删除失败'+err)
           })
     }
   },
