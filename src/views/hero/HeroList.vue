@@ -19,9 +19,9 @@
                 <td>{{item.gender}}</td>
                 <td>
 
-                  <a href="edit.html">edit</a>
+                  <a href="edit.html">编辑</a>
                   &nbsp;&nbsp;
-                  <a href="javascript:window.confirm('Are you sure?')">delete</a>
+                  <a href="javascript:;" @click='del(item.id)'>删除</a>
                 </td>
               </tr>
             </tbody>
@@ -47,7 +47,7 @@ this.loadData()
           .get('http://localhost:3000/heroes')
           .then((res) => {
             const {status,data} = res
-            console.log (data)
+           
             if(status === 200 ){
               this.list= data
             } else{
@@ -56,6 +56,21 @@ this.loadData()
           })
           .catch((err) => {
             alert('服务器异常' + err)
+          })
+    },
+    // 发送删除请求
+    del(id) {
+         if(!confirm('您确认删除吗')){
+                return false
+            }
+      axios
+          .delete(`http://localhost:3000/heroes/`+id)
+          .then((res) => {
+         
+            if (res.status ===200){
+              this.loadData()
+            }
+
           })
     }
   },
